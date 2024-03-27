@@ -1,6 +1,6 @@
 # Conteneur Docker Epitech
 
-Ce README explique la configuration et l'utilisation d'un conteneur Docker basé sur l'image `arm64v8/ubuntu:latest`, spécialement préparé pour le développement en C. Ce conteneur inclut les outils essentiels tels que GCC, Make, ainsi que des bibliothèques et des outils de débogage comme Valgrind.
+Ce README explique la configuration et l'utilisation d'un conteneur Docker basé sur l'image `arm64v8/ubuntu:latest`, spécialement préparé pour le développement en C/C++ d'Epitech. Ce conteneur inclut les outils essentiels tels que GCC, Make, ainsi que des bibliothèques et des outils de débogage comme Valgrind.
 
 ## Prérequis
 
@@ -17,6 +17,7 @@ FROM arm64v8/ubuntu:latest
 # Mise à jour des paquets et installation des outils de développement
 RUN apt-get update && apt-get install -y \
     gcc \
+    g++ \
     make \
     libuuid1 \
     uuid-dev \
@@ -48,12 +49,22 @@ Une fois l'image construite, vous pouvez démarrer un conteneur en utilisant :
 docker run -v $(pwd):/app -it mon-application-c
 ```
 
-Remplacez `mon-application-c`
+Remplacez `mon-application-c` par le nom de votre image.
 
 ## Travailler dans le Conteneur
 
 Après avoir démarré le conteneur, vous serez dans le répertoire `/app`, où votre code source est copié. Vous pouvez compiler et exécuter vos programmes en C en utilisant GCC, faire des tests avec Valgrind, et utiliser Make pour automatiser la compilation.
 
-## Conclusion
+## Utilisation du Script de Style de Codage
 
-Ce conteneur Docker fournit un environnement de développement en C prêt à l'emploi pour les systèmes avec une architecture ARM64. Il est particulièrement utile pour les développeurs travaillant sur des projets nécessitant les outils spécifiés, offrant ainsi une plateforme cohérente et isolée pour le développement.
+Pour garantir la cohérence du style de codage dans vos projets en C, un script `coding-style.sh` est inclus dans le conteneur. Ce script est conçu pour formater automatiquement votre code selon les conventions de style Epitech.
+
+### Comment Exécuter le Script de Style de Codage
+
+Pour utiliser le script `coding-style.sh` et appliquer les conventions de style à vos fichiers source en C, exécutez la commande suivante dans le terminal de votre conteneur :
+
+```bash
+./coding-style.sh chemin_vers_votre_fichier.c
+```
+
+Remplacez `chemin_vers_votre_fichier.c` par le chemin relatif ou absolu de votre fichier source en C. Vous pouvez également appliquer le script à plusieurs fichiers en les listant séparément ou en utilisant des motifs globaux.
