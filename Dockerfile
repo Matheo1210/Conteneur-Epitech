@@ -10,6 +10,10 @@ RUN apt-get update && apt-get install -y \
     libcsfml-dev \
   && rm -rf /var/lib/apt/lists/*
 
+COPY coding-style.sh /usr/local/bin/
+
+RUN chmod +x /usr/local/bin/coding-style.sh
+
 WORKDIR /app
 
 CMD ["bash"]
