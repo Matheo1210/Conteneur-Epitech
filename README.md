@@ -45,6 +45,10 @@ RUN apt-get update && apt-get install -y \
     python3 \ # Python 3
     python3-pip \ # Python package manager
     nasm \ # Netwide Assembler
+    sudo \ # Superuser do
+    curl \ # File transfer
+    && curl -fsSL https://get.docker.com -o get-docker.sh \ # Docker installation script
+    && sh get-docker.sh \ # Install Docker
   && pip3 install conan \ # C/C++ package manager
   && rm -rf /var/lib/apt/lists/*
 

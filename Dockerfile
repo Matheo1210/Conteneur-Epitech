@@ -30,12 +30,12 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     nasm \
+    sudo \
+    curl \
+    && curl -fsSL https://get.docker.com -o get-docker.sh \
+    && sh get-docker.sh \
   && pip3 install conan \
   && rm -rf /var/lib/apt/lists/*
-
-COPY coding-style.sh /usr/local/bin/
-
-RUN chmod +x /usr/local/bin/coding-style.sh
 
 WORKDIR /app
 
