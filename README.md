@@ -44,6 +44,7 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \ # SSL libraries
     python3 \ # Python 3
     python3-pip \ # Python package manager
+    nasm \ # Netwide Assembler
   && pip3 install conan \ # C/C++ package manager
   && rm -rf /var/lib/apt/lists/*
 
