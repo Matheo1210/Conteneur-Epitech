@@ -64,7 +64,7 @@ Pour garantir la cohérence du style de codage dans vos projets en C, un script 
 Pour utiliser le script `coding-style.sh` et appliquer les conventions de style à vos fichiers source en C, exécutez la commande suivante dans le terminal de votre conteneur :
 
 ```bash
-./coding-style.sh chemin_vers_votre_fichier.c
+coding-style.sh chemin_vers_votre_fichier.c
 ```
 
 Remplacez `chemin_vers_votre_fichier.c` par le chemin relatif ou absolu de votre fichier source en C. Vous pouvez également appliquer le script à plusieurs fichiers en les listant séparément ou en utilisant des motifs globaux.
