@@ -45,10 +45,10 @@ Remplacez `mon-application-c` par le nom souhaité pour votre image.
 Une fois l'image construite, vous pouvez démarrer un conteneur en utilisant :
 
 ```bash
-docker run -it --name mon-conteneur-c mon-application-c
+docker run -v $(pwd):/app -it mon-application-c
 ```
 
-Remplacez `mon-conteneur-c` par le nom souhaité pour votre conteneur, et `mon-application-c` par le nom de l'image que vous avez construite.
+Remplacez `mon-application-c`
 
 ## Travailler dans le Conteneur
 
