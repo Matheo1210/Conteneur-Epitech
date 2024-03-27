@@ -14,21 +14,47 @@ Le `Dockerfile` suivant est utilisé pour créer l'image Docker :
 ```dockerfile
 FROM arm64v8/ubuntu:latest
 
-# Mise à jour des paquets et installation des outils de développement
+# Install common development tools and libraries
 RUN apt-get update && apt-get install -y \
-    gcc \
-    g++ \
-    make \
-    libuuid1 \
-    uuid-dev \
-    valgrind \
+    build-essential \ # Includes gcc, g++ and make
+    clang \ # Additional compiler option
+    cmake \ # Build system
+    git \ # Version control
+    valgrind \ # Memory debugging
+    gdb \ # Debugging
+    lldb \ # Another debugger, often used with Clang
+    cppcheck \ # Static analysis for C/C++
+    vim \ # Editor (you can choose others like emacs or nano)
+    libncurses5-dev \ # For terminal-based interfaces
+    libncursesw5-dev \
+    libsfml-dev \ # Simple and Fast Multimedia Library for C++
+    libcsfml-dev \ # Binding of SFML for C
+    libsdl2-dev \ # Simple DirectMedia Layer for multimedia
+    libsdl2-image-dev \ # SDL2 image modules
+    libsdl2-ttf-dev \ # SDL2 ttf modules
+    libglm-dev \ # OpenGL Mathematics
+    libglew-dev \ # OpenGL Extension Wrangler Library
+    freeglut3-dev \ # OpenGL Utility Toolkit
+    mesa-utils \ # OpenGL utilities
+    xorg-dev \ # Xorg development libraries
+    libx11-dev \ # X11 development libraries
+    libxrandr-dev \ # Xrandr library
+    libxi-dev \ # X Input library
+    uuid-dev \ # Universally unique id library
+    libssl-dev \ # SSL libraries
+    python3 \ # Python 3
+    python3-pip \ # Python package manager
+  && pip3 install conan \ # C/C++ package manager
   && rm -rf /var/lib/apt/lists/*
 
-# Copie du code source dans le conteneur
-COPY . /app
+COPY coding-style.sh /usr/local/bin/
 
-# Définition du répertoire de travail
+RUN chmod +x /usr/local/bin/coding-style.sh
+
 WORKDIR /app
+
+CMD ["bash"]
+
 ```
 
 ## Construction de l'Image Docker
