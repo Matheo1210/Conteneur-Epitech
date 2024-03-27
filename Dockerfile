@@ -6,6 +6,8 @@ RUN apt-get update && apt-get install -y \
     libuuid1 \
     uuid-dev \
     valgrind \
+    libsfml-dev \
+    libcsfml-dev \
   && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
