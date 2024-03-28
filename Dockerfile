@@ -1,4 +1,4 @@
-FROM arm64v8/ubuntu:latest
+FROM --platform=linux/amd64 ubuntu:latest
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y \
     xorg-dev \
     libx11-dev \
     libxrandr-dev \
+    uuid-dev \
     libxi-dev \
     uuid-dev \
     libssl-dev \
